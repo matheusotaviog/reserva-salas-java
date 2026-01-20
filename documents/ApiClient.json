@@ -1,0 +1,393 @@
+{
+  "info": {
+    "name": "Sistema de Reserva de Salas",
+    "description": "Collection completa para testar a API de Reserva de Salas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Salas",
+      "item": [
+        {
+          "name": "Listar Salas Ativas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/salas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "salas"]
+            }
+          }
+        },
+        {
+          "name": "Listar Todas as Salas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/salas/todas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "salas", "todas"]
+            }
+          }
+        },
+        {
+          "name": "Buscar Sala por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/salas/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "salas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar por Capacidade Mínima",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/salas/capacidade/20",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "salas", "capacidade", "20"]
+            }
+          }
+        },
+        {
+          "name": "Buscar por Localização",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/salas/localizacao?local=Prédio A",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "salas", "localizacao"],
+              "query": [
+                {
+                  "key": "local",
+                  "value": "Prédio A"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Criar Sala",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Sala 501\",\n  \"capacidade\": 30,\n  \"descricao\": \"Sala executiva com TV\",\n  \"localizacao\": \"Prédio D - 5º andar\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/salas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "salas"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar Sala",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Sala 101 Atualizada\",\n  \"capacidade\": 25,\n  \"descricao\": \"Sala com projetor 4K\",\n  \"localizacao\": \"Prédio A - 1º andar\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/salas/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "salas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Desativar Sala",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/salas/1/desativar",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "salas", "1", "desativar"]
+            }
+          }
+        },
+        {
+          "name": "Reativar Sala",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/salas/1/reativar",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "salas", "1", "reativar"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reservas",
+      "item": [
+        {
+          "name": "Listar Reservas Futuras",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/reservas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reservas"]
+            }
+          }
+        },
+        {
+          "name": "Buscar Reserva por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/reservas/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reservas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Listar Reservas por Sala",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/reservas/sala/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reservas", "sala", "1"]
+            }
+          }
+        },
+        {
+          "name": "Listar Reservas por Email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/reservas/email?email=maria.santos@email.com",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reservas", "email"],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "maria.santos@email.com"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Verificar Disponibilidade",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/reservas/disponibilidade?salaId=1&inicio=2025-01-25T14:00:00&fim=2025-01-25T16:00:00",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reservas", "disponibilidade"],
+              "query": [
+                {
+                  "key": "salaId",
+                  "value": "1"
+                },
+                {
+                  "key": "inicio",
+                  "value": "2025-01-25T14:00:00"
+                },
+                {
+                  "key": "fim",
+                  "value": "2025-01-25T16:00:00"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Criar Reserva",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"salaId\": 1,\n  \"nomeResponsavel\": \"Pedro Costa\",\n  \"emailResponsavel\": \"pedro.costa@email.com\",\n  \"dataHoraInicio\": \"2025-01-25T10:00:00\",\n  \"dataHoraFim\": \"2025-01-25T12:00:00\",\n  \"observacoes\": \"Reunião com fornecedores\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/reservas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reservas"]
+            }
+          }
+        },
+        {
+          "name": "Criar Reserva (Conflito de Horário)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"salaId\": 1,\n  \"nomeResponsavel\": \"Ana Lima\",\n  \"emailResponsavel\": \"ana.lima@email.com\",\n  \"dataHoraInicio\": \"2025-01-25T11:00:00\",\n  \"dataHoraFim\": \"2025-01-25T13:00:00\",\n  \"observacoes\": \"Teste de conflito - deve dar erro\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/reservas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reservas"]
+            }
+          }
+        },
+        {
+          "name": "Cancelar Reserva",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/reservas/1/cancelar",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reservas", "1", "cancelar"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Testes de Validação",
+      "item": [
+        {
+          "name": "Criar Sala Sem Nome (Erro)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"capacidade\": 20,\n  \"descricao\": \"Teste sem nome\",\n  \"localizacao\": \"Prédio A\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/salas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "salas"]
+            }
+          }
+        },
+        {
+          "name": "Criar Reserva no Passado (Erro)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"salaId\": 1,\n  \"nomeResponsavel\": \"Teste\",\n  \"emailResponsavel\": \"teste@email.com\",\n  \"dataHoraInicio\": \"2020-01-01T10:00:00\",\n  \"dataHoraFim\": \"2020-01-01T12:00:00\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/reservas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reservas"]
+            }
+          }
+        },
+        {
+          "name": "Criar Reserva com Email Inválido (Erro)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"salaId\": 1,\n  \"nomeResponsavel\": \"Teste\",\n  \"emailResponsavel\": \"email-invalido\",\n  \"dataHoraInicio\": \"2025-01-30T10:00:00\",\n  \"dataHoraFim\": \"2025-01-30T12:00:00\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/reservas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reservas"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
